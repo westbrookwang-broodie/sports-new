@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <!-- 足球场背景 -->
+    <ImageView
+        android:id="@+id/football_field"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/football_field"
+        android:scaleType="fitCenter" />
+
+    <!-- 球员图标 -->
+    <RelativeLayout
+        android:id="@+id/player_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        />
+
+    <!-- 保存按钮 -->
+    <Button
+        android:id="@+id/save_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="Save Formation" />
+
+</RelativeLayout>

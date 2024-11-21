@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.sportsnews">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name="org.litepal.LitePalApplication"
+        android:allowBackup="true"
+        android:icon="@drawable/manches"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/manches"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.SportsNews"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="31">
+        <activity
+            android:name=".activity.AddForumActivity"
+            android:exported="false"
+            android:label="@string/title_activity_add_post"
+            android:theme="@style/Theme.SportsNews"
+            tools:ignore="MissingClass" />
+        <activity
+            android:name=".activity.ForumDetailActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ForumActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.AnimationActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".activity.CustomizeJerseyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.BrowseNewsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.ProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.NewsListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.IndexActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.CollectionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".activity.FieldActivity"
+            android:exported="false" />
+    </application>
+
+</manifest>

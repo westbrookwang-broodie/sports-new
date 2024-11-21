@@ -1,0 +1,52 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.IndexActivity">
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/div_tab_bar" />
+
+    <View
+        android:id="@+id/div_tab_bar"
+        android:layout_width="match_parent"
+        android:layout_height="2px"
+        android:layout_above="@id/rg_tab_bar"
+        android:background="@color/div_white" />
+
+    <RadioGroup
+        android:id="@+id/rg_tab_bar"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/club"
+            style="@style/tab_menu_item"
+            android:drawableTop="@drawable/man"
+            android:text="@string/news" />
+
+        <RadioButton
+            android:id="@+id/forum"
+            style="@style/tab_menu_item"
+            android:drawableTop="@drawable/forum_icon" />
+
+        <RadioButton
+            android:id="@+id/field"
+            style="@style/tab_menu_item"
+            android:drawableTop="@drawable/field" />
+
+        <RadioButton
+            android:id="@+id/mine"
+            style="@style/tab_menu_item"
+            android:drawableTop="@drawable/mine_icon"
+            android:text="@string/profile" />
+
+    </RadioGroup>
+
+</RelativeLayout>

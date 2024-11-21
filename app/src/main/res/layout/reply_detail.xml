@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <!-- 回复内容 -->
+    <TextView
+        android:id="@+id/replyContentTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="回复内容"
+        android:textSize="16sp"
+        android:paddingBottom="4dp" />
+
+    <!-- 回复人和时间 -->
+    <TextView
+        android:id="@+id/replyMetaTextView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="由 用户名 于 时间 发布"
+        android:textSize="14sp"
+        android:textColor="@android:color/darker_gray" />
+</LinearLayout>

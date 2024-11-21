@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- 显示帖子标题 -->
+    <TextView
+        android:id="@+id/forumTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:paddingBottom="8dp" />
+
+    <!-- 显示回复列表 -->
+    <ListView
+        android:id="@+id/replyListView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <!-- 添加新回复 -->
+    <EditText
+        android:id="@+id/replyEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="输入回复内容" />
+
+    <Button
+        android:id="@+id/submitReplyButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="发布回复"
+        android:layout_marginTop="8dp" />
+
+</LinearLayout>
