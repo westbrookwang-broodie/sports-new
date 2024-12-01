@@ -11,6 +11,9 @@ import android.view.animation.AnimationUtils;
 import android.widget.TextView;
 
 import com.example.sportsnews.R;
+import com.example.sportsnews.model.Player;
+
+import org.litepal.LitePal;
 
 public class AnimationActivity extends AppCompatActivity {
 
@@ -35,6 +38,8 @@ public class AnimationActivity extends AppCompatActivity {
         topAnimantion = AnimationUtils.loadAnimation(this,R.anim.top_animation);
         bottomAnimation = AnimationUtils.loadAnimation(this,R.anim.bottom_anmantion);
         middleAnimation = AnimationUtils.loadAnimation(this,R.anim.middle_animation);
+
+//        LitePal.deleteAll(Player.class,"userId = ?", "123456");
 
 
 

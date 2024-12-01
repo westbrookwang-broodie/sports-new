@@ -23,6 +23,7 @@ import java.util.List;
 
 import com.example.sportsnews.adapter.ForumAdapter;
 import com.example.sportsnews.model.Forum;
+import com.example.sportsnews.util.GlobalData;
 
 public class ForumActivity extends AppCompatActivity {
 
@@ -63,7 +64,9 @@ public class ForumActivity extends AppCompatActivity {
         // 帖子点击事件
         postListView.setOnItemClickListener((parent, view, position, id) -> {
             Forum forum = postList.get(position);
-            Intent intent = new Intent(ForumActivity.this, ForumDetailActivity.class);
+            Intent intent = new Intent(ForumActivity.this, ForumDetailActivity.class);// 用户名保存到全局变量中
+//            startActivity(intent);      // 跳转
+//            Intent intent = new Intent(IndexActivity.class.newInstance(), ForumDetailActivity.class);
             intent.putExtra("forumId", forum.getId()); // 传递帖子 ID
             intent.putExtra("title", forum.getTitle()); // 传递帖子标题
             intent.putExtra("detail", forum.getContent()); // 传递帖子内容

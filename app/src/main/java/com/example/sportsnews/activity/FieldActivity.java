@@ -111,6 +111,8 @@ public class FieldActivity extends AppCompatActivity {
                     case MotionEvent.ACTION_UP:
                         // Save the new position
                         playerPositions.put(playerId, new float[]{v.getX(), v.getY()});
+                        players.get(playerId).setX(v.getX());
+                        players.get(playerId).setY(v.getY());
                         break;
                 }
                 return true;
@@ -149,10 +151,14 @@ public class FieldActivity extends AppCompatActivity {
                     case MotionEvent.ACTION_MOVE:
                         v.setX(event.getRawX() + dX);
                         v.setY(event.getRawY() + dY);
+//                        players.get(index).setY(v.getY());
+//                        players.get(index).setX(v.getX());
                         break;
 
                     case MotionEvent.ACTION_UP:
                         // 保存当前位置
+                        Player p = new Player(index, v.getX(), v.getY(),GlobalData.getUsername());
+                        players.add(p);
                         playerPositions.put(index, new float[]{v.getX(), v.getY()});
                         break;
                 }
@@ -181,6 +187,8 @@ public class FieldActivity extends AppCompatActivity {
 
                     case MotionEvent.ACTION_UP:
                         // 保存当前位置
+                        players.get(v.getId()).setX(v.getX());
+                        players.get(v.getId()).setY(v.getY());
                         playerPositions.put(v.getId(), new float[]{v.getX(), v.getY()});
                         break;
                 }
@@ -192,16 +200,8 @@ public class FieldActivity extends AppCompatActivity {
     private void saveFormation() {
         try {
             // Loop through player positions and save them to the database
-            for (Map.Entry<Integer, float[]> entry : playerPositions.entrySet()) {
-                int playerId = entry.getKey();
-                float x = entry.getValue()[0];
-                float y = entry.getValue()[1];
-
-                // Create a new Player object
-                Player player = new Player(playerId, x, y, GlobalData.getUsername());
-
-                // Save the player object to the database
-                player.save();
+            for (Player p : players) {
+                p.save();
             }
 
             // Optionally, you can display a success message or a toast

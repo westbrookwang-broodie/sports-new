@@ -1,7 +1,9 @@
 package com.example.sportsnews.activity;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -12,6 +14,7 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -45,6 +48,22 @@ public class ForumDetailActivity extends AppCompatActivity {
     private ReplyAdapter replyAdapter;
     private ArrayList<String> replies;
 //    private ArrayAdapter<String> replyAdapter;
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case android.R.id.home:
+                // 点击返回按钮时，回到主页面（MainActivity）
+                Intent intent = new Intent(this, IndexActivity.class);  // 这里假设主页面是 MainActivity
+                intent.putExtra("tabToSelect", 1);
+//                intent.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);  // 清除历史栈中的其他活动，确保返回到主页面
+                startActivity(intent);
+                finish();  // 结束当前 Activity
+                return true;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+    }
 
     @SuppressLint("MissingInflatedId")
     @Override
@@ -141,6 +160,7 @@ public class ForumDetailActivity extends AppCompatActivity {
             Toast.makeText(this, "回复成功", Toast.LENGTH_SHORT).show();
             replyEditText.setText("");
             loadReplies();
+            finish();
         } else {
             Toast.makeText(this, "回复失败", Toast.LENGTH_SHORT).show();
         }

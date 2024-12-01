@@ -30,6 +30,8 @@ public class IndexActivity extends ActivityGroup {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_index);
         initView();
+
+
         // 对单选按钮进行监听，选中则切换页面
         mRadioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -41,7 +43,7 @@ public class IndexActivity extends ActivityGroup {
                     case R.id.forum:
                         mViewPager.setCurrentItem(1);
                         // 切回收藏页面时要startActivity更新列表
-                        getLocalActivityManager().startActivity("CollectionActivity", new Intent(IndexActivity.this, CollectionActivity.class));
+//                        getLocalActivityManager().startActivity("CollectionActivity", new Intent(IndexActivity.this, CollectionActivity.class));
                         break;
                     case R.id.field:
                         mViewPager.setCurrentItem(2);
@@ -53,7 +55,11 @@ public class IndexActivity extends ActivityGroup {
             }
         });
 
-        tab_club.setChecked(true);
+        int tabToSelect = getIntent().getIntExtra("tabToSelect", 0);
+        if (tabToSelect == 1) {
+            mRadioGroup.check(R.id.forum);// Automatically select the Forum tab
+            mViewPager.setCurrentItem(1);
+        }
     }
 
     /* 初始化控件 */
@@ -76,7 +82,10 @@ public class IndexActivity extends ActivityGroup {
         View newsView = getLocalActivityManager().startActivity("NewsActivity", new Intent(IndexActivity.this, NewsListActivity.class)).getDecorView();
         View collectionView = getLocalActivityManager().startActivity("FieldActivity", new Intent(IndexActivity.this, FieldActivity.class)).getDecorView();
         View forumView = getLocalActivityManager().startActivity("ForumActivity", new Intent(IndexActivity.this, ForumActivity.class)).getDecorView();
-        // 跳转到个人信息需要获取用户名 所以此处要将登录页面传来的username再传过去
+//        View forumDetailView = getLocalActivityManager().startActivity("ForumDetailActivity", new Intent(IndexActivity.this, ForumDetailActivity.class)).getDecorView();
+
+//        View forumDetailView = getLocalActivityManager().startActivity("ForumDetailActivity", intent).getDecorView();
+
 //        Intent intent = new Intent(IndexActivity.this, ProfileActivity.class);
 //        intent.putExtra("username", getIntent().getStringExtra("username"));
         View profileView = getLocalActivityManager().startActivity("CustomizeJerseyActivity", new Intent(IndexActivity.this, CustomizeJerseyActivity.class)).getDecorView();
@@ -84,6 +93,7 @@ public class IndexActivity extends ActivityGroup {
         mViews.add(forumView);
         mViews.add(collectionView);
         mViews.add(profileView);
+//        mViews.add(forumDetailView);
 
         mViewPager.setAdapter(new MyPagerAdapter());        // 设置一个适配器
         mViewPager.addOnPageChangeListener(new MyOnPageChangeListener());   //添加切换界面的监听器
